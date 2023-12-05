@@ -1,0 +1,9 @@
+{
+    "env":{
+        "DB_USER":"manos", 
+        "DB_PASSWORD":"manos123",
+        "DB_NAME":"project",
+        "PORT":5001
+        
+    }
+}
