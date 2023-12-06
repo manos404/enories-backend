@@ -6,75 +6,15 @@ const { MarkerModel } = require("../models/marker");
 const { PolygonModel } = require("../models/polygon");
 const { UserModel } = require("../models/user");
 
-const admins = [
-  {
-    username: "admin",
-    password: "admin123",
-  },
-];
 
-let data = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [35.205086209786394, 25.158477039367572],
-          [35.19921618292286, 25.172693571576197],
-          [35.21687361475338, 25.131310270052676],
-          [35.22693, 25.15462],
-          [35.23263, 25.17037],
-          [35.230957581128564, 25.177845552861488],
-          [35.23789, 25.17173],
-          [35.2589101148275, 25.18705143197222],
-          [35.24527, 25.16618],
-          [35.24916919354481, 25.15361262032802],
-          [35.23656, 25.13971],
-          [35.23429557335186, 25.177754252861572],
-          [35.205086209786394, 25.158477039367572],
-        ],
-      },
-      properties: {
-        name: "ΕΝΟΡΙΑ ΑΝΩ ΑΡΧΑΝΩΝ",
-        id: "no1",
-      },
-    },
-    {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: [35.238026, 25.159381],
-      },
-      properties: {
-        id: "p2",
-        name: "Ιερός Ναός Κοιμήσεως Της Θεοτόκου",
-        parish: "ΕΝΟΡΙΑ ΑΝΩ ΑΡΧΑΝΩΝ",
-      },
-    },
-    {
-      type: "Feature",
-      geometry: {
-        type: "Point",
-        coordinates: [35.237821, 25.159196],
-      },
-      properties: {
-        id: "p3",
-        name: "Ιερός Ναός Αγίου Αντωνίου",
-        parish: "ΕΝΟΡΙΑ ΑΝΩ ΑΡΧΑΝΩΝ",
-      },
-    },
-  ],
-};
 
 const getAllData = async (req, res, next) => {
   let  features=[] ;
   try {
     const polygons = await PolygonModel.find({});
     const markers = await MarkerModel.find({});
-console.log(polygons)
-console.log(markers)
+// console.log(polygons)
+// console.log(markers)
     features  = polygons.concat(markers)
   } catch (err) {
     const error = new HttpError("Σφάλμα κατά την ανάκτηση των δεδομένων:", 500);
