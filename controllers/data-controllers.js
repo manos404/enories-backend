@@ -153,6 +153,7 @@ const deleteMarker = async (req, res, next) => {
       "Something went wrong,could not delete the marker",
       500
     );
+    console.log("deleted")
     return next(error);
   }
 
